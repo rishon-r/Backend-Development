@@ -1,0 +1,65 @@
+WHAT IS THE FULLSTACK?
+
+- "Full stack" refers to the complete set of technologies and layers used in web development — both front-end (what users see and interact with) and back-end (the server, database, and application logic behind the scenes).
+- A full-stack developer can build and manage both sides of a web application.
+
+WHAT IS FRONT-END?
+
+- Front-end refers to everything that the user sees in the browser when they interact with the application
+- Technologies like HTML, CSS and React are used to develop the front-end
+- Front-end is often known as the Client-side
+- Front-end consists of three key componenets: The user, the client and the front end itself
+- User is simply the person trying to access the application, client is the medium through which the user tries to access internet and the front end
+- as we discussed before is the visualisation of the website itsel i.e the interface that the user interacts with
+
+WHAT IS THE CLIENT?
+
+- In computing and web development, the client is the device or software that requests and interacts with services or data from a server
+- The client is usually your web browser (like Chrome, Firefox, Safari) or any app that you use to access information from a server
+- It sends requests to the server
+
+WHAT IS A SERVER?
+
+- A server is the machine that responds to the client’s requests behind the scenes
+- It usually handles business logic and data
+- It usually runs on a remote computer
+- It sends responses back to the client
+
+
+WHAT IS BACK-END? 
+
+- In the context of web and software development, the backend refers to the part of an application, system, or website that operates behind the scenes
+- It is the server-side component that handles the core logic, database interactions, authentication, authorization, and all other processes that the user does not directly see or interact with, but which make the application functional
+
+HOW THE BACK-END WORKS
+
+- When you type a URL into your browser, your browser sends out what is called a network request
+- A URL, which stands for Uniform Resource Locator, is a standardized string of text that provides the address to locate and access a specific resource on the Internet
+- In simple terms, a URL is the “address” of something online, just like your home address tells the postal service where to deliver a letter
+- When you type this URL into the browser, the browser sends a network request to the computer at the location specified by the URL
+- Note that every computer connected to the internet is identified by an address called the IP Address. 
+- While not every IP Address has a URL, every URL eventually gets converted into an IP Address by something called the DNS (Domain Name System)
+- DNS stands for Domain Name System
+- It is like the “phonebook of the Internet”, translating human-friendly domain names (like www.google.com) into IP addresses (like 142.250.190.78) that computers use to locate each other on the Internet
+- How is the URL different from Domain name?
+  - A URL contains a domain name among other things:
+  - Example of URL: https://www.openai.com/research/index.html?year=2024
+  - https → protocol
+  - www.openai.com → domain name
+  - /research/index.html → path to a specific file
+  - ?year=2024 → query string
+- URL Path is the part of URL that comes after the domain name
+- It specifies the location of a resource
+- A query string is the part of a URL that contains extra data sent to the server as key-value pairs, often used to:
+  - Pass parameters,
+  - Filter search results,
+  - Control what content to show,
+  - Or modify how a resource is fetched.
+  - The query string contains key-value pairs known as URL parameters where multiple URL parameters are separated by & symbol and a key-value pair is denoted by = sign.
+- Now, the devices located at the locations specified by the URL are set up in order to listen to incoming network requests
+- These devices are often called Servers
+- The servers listen to the network request, interpret the network request, do what is required by the request (might be wuerying a database, rendering HTMl, etc.) and return back a response to the client
+- A network request sent by the client usually contains all information that is required by the server to process the request and what the network request wants the server to do
+- It also contains the return address to where it wants the server to send a response to 
+- In the case of a request sent through the web browser, all of this happens in the split second it takes to load a request
+- The code that makes these servers function and return appropriate network responses is called the backend
