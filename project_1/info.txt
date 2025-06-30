@@ -1,0 +1,50 @@
+NodeJS
+- To check if Node is installed in your computer, type node -v in terminal. It will return the version of node installed in your computer
+- To check what version of the node package manager is installed in your computer, type npm -v in the terminal
+- npm stands for Node Package Manager — it’s the default package manager that comes with Node.js.
+- The command npm init helps you create a package.json file, which is like the blueprint or manifest for your Node.js project.
+- A manifest is simply a file that describes important information about other files or resources in a project.
+- Think of it as a master list or a map that tells systems, tools, or browsers how to handle, load, or interpret the contents of a project.
+- The -y flag launches an interactive wizard that asks you questions one by one
+- Th package.json file stores important project info like: 
+  - Project name, version, description
+  - Author, license
+  - Dependencies (other packages your project needs)
+  - Scripts (commands you run like npm start)
+- The package.json file essentially contains all specifications for our project
+
+ExpressJS
+- ExpressJS is a popular web framework for NodeJS
+- It helps you build web servers and APIs more easily than using raw Node.js.
+- Think of Express as a set of tools, helpers, and patterns that sit on top of Node’s built-in http module
+- You install express with the npm install express command
+- This adds a lot of files in a folder called node_modules. We usually don't touch any of the files within this folder.
+- Similarly, it installs a file called package-lock.json which we also do not touch
+- It also adds an additional field in the pacakge.json file called Dependencies
+- This field tells us what files our project is dependent on
+
+Running a file
+- To run a file, one can simply type node followed by the filenam in terminal
+- E.g: node server.js
+- Another way to do so, is adding the required command to the scripts field of package.json
+- After this, we can tell npm to run that particular script by mentioning the key corresponding to said script within the scripts object of package.json
+- E.g npm run dev
+- The final way, and the way we will use, involves using the package nodemon
+
+nodemon
+- Nodemon (short for Node Monitor) is a development tool for Node.js that automatically watches your source files for changes and restarts your Node.js server whenever you make edits.
+- This saves us the hassle of having to constantly rerun scripts when we make changes in a file
+- By default, when you run node server.js (or any Node app), the server won’t pick up changes automatically.
+- This is tedious and will break your workflow
+- Nodemon fixes this
+- It watches your project’s files.
+- If it detects a change (e.g., you edit a route handler, controller, config), it restarts the server automatically.
+- This makes development way faster and less error-prone.
+- How to install:
+  - The command: npm install --save-dev nodemon will install it as a dev dependency
+  - After this you will run your app with nodemon instead of node
+  - E.g nodemon server.js
+  - You will also note a change to your package.json when you do this. There will be a new field titled devDependencies added
+  
+- It is still better to go into packags.json and use the script. Change node in dev to nodemon.
+- Then, do the same as above and type npm run dev in the terminal
