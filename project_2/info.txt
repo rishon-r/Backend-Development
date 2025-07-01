@@ -1,0 +1,9 @@
+THIS FILE CONTAINS SOME THEORY AND SMALL NOTES REGARDING THIS PROJECT
+
+1. What is a .env file?
+- A .env file is a simple text file where you store environment variables for your application.
+- It lets you keep configuration values — like secrets, API keys, database URLs, and settings — outside your source code.
+- They are stored in the form of key value pairs
+- A .env file is usually named exactly .env and sits in the root of your project.
+- The project root is the top-level folder of your project — the main directory that contains all the files and subfolders for that project.
+- It is typically added to the .gitignore file to keep it from being added to the version control
