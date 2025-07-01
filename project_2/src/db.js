@@ -11,7 +11,7 @@ const db = new DatabaseSync(':memory:');
 // We associate every to-do Task in the task table with a user
 
 db.exec(`
-  CREATE TABLE user (
+  CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE,
     password TEXT
