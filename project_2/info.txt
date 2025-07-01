@@ -37,3 +37,17 @@ THIS FILE CONTAINS SOME THEORY AND SMALL NOTES REGARDING THIS PROJECT
   - These files are publicly accessible to anyone visiting your site.
 - Examples: HTML files, CSS files, Client Side JS files
 
+7. What is path.join()?
+- path.join() is a method provided by Node.js’s built-in path module.
+- It joins all given path segments together using the correct platform-specific separator (/ on POSIX (Linux, macOS) and \ on Windows).
+- It also normalizes the resulting path: removing redundant slashes and resolving . (current directory) and .. (parent directory) segments.
+- When you’re building file paths in a cross-platform Node app, you can’t safely just concatenate strings like: const filePath = 'folder' + '/' + 'file.txt';
+- Because: On Windows, the separator is \, not /
+- You might also accidentally introduce double slashes or fail to resolve . and .. correctly
+- Syntax:
+    const path = require('path');
+    const result = path.join('folder', 'subfolder', 'file.txt');
+- It accepts any number of string arguments, each representing a path segment
+- Concatenates with correct separator
+- It won’t convert to an absolute path unless the first segment is absolute
+
