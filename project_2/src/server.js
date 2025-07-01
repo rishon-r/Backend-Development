@@ -20,6 +20,18 @@ import path, {dirname} from 'path';
 // You often convert it back to a normal file path so Node’s fs or path modules can use it.
 import {fileURLToPath} from 'url';
 
+// Here, you are importing the default export from ./routes/authRoutes.js
+// That default export is an Express Router instance
+// i.e We import an Express Router called authRoutes from ./routes/authRoutes.js
+// This router file defines all your authentication-related routes
+import authRoutes from './routes/authRoutes.js';
+
+// Here, you are importing the default export from ./routes/todoRoutes.js
+// That default export is an Express Router instance
+// i.e We import an Express Router called todoRoutes from ./routes/todoRoutes.js
+// This router file contains all toDo related routes
+import todoRoutes from './routes/todoRoutes.js';
+
 // INITIALIZING WEB SERVER INSTANCE
 const app=express(); 
 
@@ -56,6 +68,16 @@ app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname, '../public', 'index.html'));
 });
+
+// Routes
+// app.use() is Express’s way of mounting middleware or a router
+// It means: “Any incoming request that matches this path prefix will be handled by this middleware.”
+// /auth is the path prefix
+// Any request that starts with /auth will be routed to authRoutes
+// We have previously seen that authRoutes is a router instance
+// his keeps your auth logic modular and your server.js file clean and organized!
+app.use('/auth', authRoutes);
+app.use('/todos', todoRoutes);
 
 app.listen(PORT,() => {
   console.log(`Server has started on port: ${PORT}`);

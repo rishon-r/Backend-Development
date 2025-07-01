@@ -51,3 +51,40 @@ THIS FILE CONTAINS SOME THEORY AND SMALL NOTES REGARDING THIS PROJECT
 - Concatenates with correct separator
 - It won’t convert to an absolute path unless the first segment is absolute
 
+8. What is the Payload tab under Network section upon clicking inspect in a google chrome page?
+- The Payload tab shows you the data that your browser sent with an HTTP request.
+- It appears when you inspect a network request — like when your web page does:
+  - A POST request (like submitting a form).
+  - Or a PUT, PATCH, DELETE request.
+  - Or even a GET request with query parameters.
+
+9. What does app.use() really do?
+- app.use() is a method on your Express application that registers middleware or routers.
+- You can think of it as telling Express: “For every request, check if this middleware should run. If yes, run it.”
+- Syntax: app.use([path], middlewareFunction)
+- It comes in two forms:
+  - app.use(middlewareFunction) → middleware runs on every request, no matter the path
+  - app.use('/somePath', middlewareFunction) → middleware runs only if the request starts with /somePath
+
+10. What does express.Router() do?
+- express.Router() is a function provided by Express.
+- It creates a “mini Express app” that you can attach routes and middleware to.
+- You then mount that mini app onto your main app with app.use()
+- When you only have a few routes, you could put everything in server.js
+- Example:
+  app.get('/login', ...)
+  app.post('/register', ...)
+- The above is fine for tiny projects
+- But in a real app with:
+  - Auth routes
+  - API routes
+  - Dashboard routes
+  - Admin routes
+  …it gets messy fast!
+- So you break them into routers, each in its own file:
+  - routes/authRoutes.js
+  - routes/apiRoutes.js
+  - etc.
+- In every one of these files, you will create a Router instance and then at the end of the file export the router instance
+- In server.js you will import these router instances
+- Then, with the help of app.use you will run these router instances when the associated path prefix is requested
