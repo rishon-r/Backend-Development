@@ -28,3 +28,12 @@ THIS FILE CONTAINS SOME THEORY AND SMALL NOTES REGARDING THIS PROJECT
 - It is the new way of doing so
 - To do this we have to add a fiel of the form: "type": "module" to package.json
 - The default value of "type" is "common.js" and that is what is used in the previous syntax
+
+6. What does the public directory in a project do?
+- The public directory (sometimes called static or assets) is a folder in your project where you put static files that you want the web server to serve as-is to clients (like browsers).
+- The public directory holds files that:
+  - Don’t need any special processing by your backend server
+  - Are sent directly to the user’s browser
+  - These files are publicly accessible to anyone visiting your site.
+- Examples: HTML files, CSS files, Client Side JS files
+
