@@ -7,3 +7,24 @@ THIS FILE CONTAINS SOME THEORY AND SMALL NOTES REGARDING THIS PROJECT
 - A .env file is usually named exactly .env and sits in the root of your project.
 - The project root is the top-level folder of your project — the main directory that contains all the files and subfolders for that project.
 - It is typically added to the .gitignore file to keep it from being added to the version control
+
+2. What packages have we installed for this project?
+- We ran this command: npm install express bcryptjs jsonwebtoken
+- We installed express for the same reason as we did in project 1, to make building web servers with node easier
+- bcryptjs helps us with encryption and decryption alogirthms so that we don't have to write them ourselves
+- jsonwebtoken is the library that provides necessary features for authentication via JWT
+
+3. Why don't we use nodemon here?
+- We don't use nodemon here as we use a later version of node and later versions of node will update your server immediately after changes to code have been done
+- These will be reflected in real time without the need to restart the server
+- Hence, we won't need nodemon to do this
+- This can be done by adding the --watch flag to node inside dev
+
+4. What runs when we type the following command: npm run dev?
+- dev in the scripts field of package.json contains the following command: "node --watch --env-file=.env --experimental-strip-types --experimental-sqlite ./src/server.js"
+- We have discussed what the --watch does in the previous question. It is called a flag
+
+5. Why do we use: import express from 'express', instead of const express= require('express') here?
+- It is the new way of doing so
+- To do this we have to add a fiel of the form: "type": "module" to package.json
+- The default value of "type" is "common.js" and that is what is used in the previous syntax
