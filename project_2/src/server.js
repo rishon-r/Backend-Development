@@ -32,6 +32,9 @@ import authRoutes from './routes/authRoutes.js';
 // This router file contains all toDo related routes
 import todoRoutes from './routes/todoRoutes.js';
 
+// Importing middleware functionality that we have created in authMiddleware.js
+import authMiddleware from './middleware/authMiddleware.js'
+
 // INITIALIZING WEB SERVER INSTANCE
 const app=express(); 
 
@@ -77,7 +80,7 @@ app.get('/', (req,res) => {
 // We have previously seen that authRoutes is a router instance
 // his keeps your auth logic modular and your server.js file clean and organized!
 app.use('/auth', authRoutes);
-app.use('/todos', todoRoutes);
+app.use('/todos', authMiddleware, todoRoutes);
 
 app.listen(PORT,() => {
   console.log(`Server has started on port: ${PORT}`);
