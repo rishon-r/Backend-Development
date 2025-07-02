@@ -88,3 +88,48 @@ THIS FILE CONTAINS SOME THEORY AND SMALL NOTES REGARDING THIS PROJECT
 - In every one of these files, you will create a Router instance and then at the end of the file export the router instance
 - In server.js you will import these router instances
 - Then, with the help of app.use you will run these router instances when the associated path prefix is requested
+
+10. Some details on JWT (JSON WEB TOKENS)
+- When you call jwt.sign(payload, secret, options), you’re creating a JWT with three parts
+- 1. HEADER: Declares that this is a JWT and what algorithm was used to sign it
+  - {
+  "alg": "HS256",
+  "typ": "JWT"
+  }
+- 2. PAYLOAD
+  - This is your actual data
+  - In the example in authRoutes.js: { id: result.lastInsertRowid } — so the token carries the user’s unique ID.
+  - Never put sensitive data like passwords here — the payload is only base64-encoded, not encrypted!
+- 3. SIGNATURE
+  - This is the cryptographic part
+  - It signs the header + payload with your secret key (process.env.JWT_SECRET).
+  - It ensures that if someone tampers with the payload, the signature won’t match and the token will be invalid.
+  - A full JWT looks like:
+      HEADER.PAYLOAD.SIGNATURE
+      eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjgwMDExMzAwLCJleHAiOjE2ODAwOTc3MDB9.Q5-KuKZwP4SxABTbgB1TgllzE7m9EKliWPlh7Hc3ss
+
+11. How JWT authentication works?
+  - 1. Register/Login
+      - User sends username + password.
+      - Server verifies credentials.
+      - If valid, server creates a signed JWT with the user’s ID and sends it back.
+
+  - 2. Client stores the JWT
+      - The client (browser, mobile app) stores the token.
+      - Usually in localStorage, sessionStorage, or an HTTP-only cookie.
+      - The token is not stored in the database.
+
+  - 3. Client sends JWT on every request
+
+  - 4. Server verifies JWT
+      - The server checks:
+        - Is the token signed correctly with the same secret key?
+        - Is it expired?
+      - If valid, the server trusts the user ID in the payload and authorizes the request.
+
+  - 5. No session needed
+      - With JWT, you don’t store a server-side session.
+      - It’s stateless — the server only needs the secret key to verify tokens
+
+
+
